@@ -32,12 +32,10 @@ public class UserController {
     public List<User> getAllUser(){
         return service.readAll();
     }
-    @GetMapping("/userCheck")
-    public List<User> searchFor(@PathVariable String login, String password){
-        return service.findByfindByLoginPassword(login,password);
+    @RequestMapping(value = "/signin", method=POST)
+    public List<User> signIn(String email, String password){
+        return service.findByLoginPassword(email,password);
     }
-
-
     @CrossOrigin(origins = "http://localhost:54714") // replace with your Flutter web app's URL
     @GetMapping("/{id}")
     public User getUser(@PathVariable String id){

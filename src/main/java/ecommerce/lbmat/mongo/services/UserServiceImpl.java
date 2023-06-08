@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> findByfindByLoginPassword(String login, String password) {
-        return repository.findActorByEmailContainingIgnoreCaseOrPasswordContainingIgnoreCase(login,password);
+    public List<User> findByLoginPassword(String email, String password) {
+        return repository.findActorByEmailOrPassword(email,password);
     }
 }
