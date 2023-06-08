@@ -1,6 +1,7 @@
 package ecommerce.lbmat.mongo.services;
 
 import ecommerce.lbmat.mongo.entities.Product;
+import ecommerce.lbmat.mongo.entities.User;
 
 import java.util.List;
 

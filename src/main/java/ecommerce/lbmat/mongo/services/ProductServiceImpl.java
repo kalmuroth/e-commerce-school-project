@@ -19,11 +19,11 @@ public class ProductServiceImpl implements ProductService{
     public Product create(Product entity) {
         return repository.save(entity);
     }
+
     @Override
     public Product read(String id) {
         return repository.findById(id).orElse(null);
     }
-
     @Override
     public List<Product> readAll() {
         return repository.findAll();

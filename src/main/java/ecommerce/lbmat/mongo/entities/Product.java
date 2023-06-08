@@ -16,7 +16,6 @@ public class Product {
     private String id;
     private String nom;
     private String ASIN;
-    private String email;
     private String categorie;
     private String photo;
     private Double prix;

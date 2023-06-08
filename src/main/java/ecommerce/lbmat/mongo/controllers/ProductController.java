@@ -28,6 +28,7 @@ public class ProductController {
     public Product getProduct(@PathVariable String id){
         return service.read(id);
     }
+
     @RequestMapping(value = "/add", method=POST)
     public Product postProduct(Product product){
         return service.create(product);
