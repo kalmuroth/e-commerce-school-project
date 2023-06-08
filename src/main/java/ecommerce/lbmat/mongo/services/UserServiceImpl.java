@@ -29,4 +29,9 @@ public class UserServiceImpl implements UserService{
     public List<User> readAll() {
         return repository.findAll();
     }
+
+    @Override
+    public List<User> findByStr(String str) {
+        return repository.findActorByNomContainingIgnoreCaseOrPrenomContainingIgnoreCase(str,str);
+    }
 }
