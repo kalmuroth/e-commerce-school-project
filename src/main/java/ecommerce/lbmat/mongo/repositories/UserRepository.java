@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends MongoRepository<User,String> {
-    List<User> findActorByNomContainingIgnoreCaseOrPrenomContainingIgnoreCase(String str1, String str2);
+    List<User> findActorByEmailContainingIgnoreCaseOrPasswordContainingIgnoreCase(String str1, String str2);
 }

@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document(value = "products")
+@Document(value = "product")
 @Getter @Setter
 @ToString
 @AllArgsConstructor
@@ -15,11 +15,10 @@ public class Product {
     @Id
     private String id;
     private String nom;
-    private String prenom;
-    private String alias;
+    private String ASIN;
     private String email;
+    private String categorie;
     private String photo;
-    private Boolean activation;
-    private Date date_de_creation;
-    private String password;
+    private Double prix;
+    private String description;
 }

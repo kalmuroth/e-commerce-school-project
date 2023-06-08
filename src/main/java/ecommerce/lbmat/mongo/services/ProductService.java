@@ -1,12 +1,11 @@
 package ecommerce.lbmat.mongo.services;
 
-import ecommerce.lbmat.mongo.entities.User;
+import ecommerce.lbmat.mongo.entities.Product;
 
 import java.util.List;
 
-public interface UserService {
-    User create(User user);
-    User read(String id);
-    List<User> readAll();
-    List<User> findByfindByLoginPassword(String str, String password);
+public interface ProductService {
+    Product create(Product product);
+    Product read(String id);
+    List<Product> readAll();
 }

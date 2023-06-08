@@ -8,5 +8,5 @@ public interface UserService {
     User create(User user);
     User read(String id);
     List<User> readAll();
-    List<User> findByStr(String str);
+    List<User> findByfindByLoginPassword(String str, String password);
 }

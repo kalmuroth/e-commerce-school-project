@@ -4,12 +4,20 @@ import ecommerce.lbmat.mongo.entities.User;
 import ecommerce.lbmat.mongo.services.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+
 import java.util.List;
+
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
 @RequestMapping("/users")
@@ -21,19 +29,22 @@ public class UserController {
     private UserService service;
 
     @GetMapping({"/","/all"})
-    public List<User> getAll(){
+    public List<User> getAllUser(){
         return service.readAll();
     }
-    @GetMapping("/search/{str}")
-    public List<User> searchFor(@PathVariable String str){
-        return service.findByStr(str);
+    @GetMapping("/userCheck")
+    public List<User> searchFor(@PathVariable String login, String password){
+        return service.findByfindByLoginPassword(login,password);
     }
 
 
     @CrossOrigin(origins = "http://localhost:54714") // replace with your Flutter web app's URL
     @GetMapping("/{id}")
-    public User getAllFilms(@PathVariable String id){
+    public User getUser(@PathVariable String id){
         return service.read(id);
     }
-
+    @RequestMapping(value = "/add", method=POST)
+    public User postUser(User user){
+        return service.create(user);
+    }
 }

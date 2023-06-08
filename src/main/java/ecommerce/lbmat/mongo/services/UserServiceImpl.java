@@ -6,20 +6,19 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
     @Slf4j
         @AllArgsConstructor
 public class UserServiceImpl implements UserService{
-
     private UserRepository repository;
 
     @Override
-    public User create(User user) {
-        return repository.save(user);
+    public User create(User entity) {
+        return repository.save(entity);
     }
-
     @Override
     public User read(String id) {
         return repository.findById(id).orElse(null);
@@ -31,7 +30,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<User> findByStr(String str) {
-        return repository.findActorByNomContainingIgnoreCaseOrPrenomContainingIgnoreCase(str,str);
+    public List<User> findByfindByLoginPassword(String login, String password) {
+        return repository.findActorByEmailContainingIgnoreCaseOrPasswordContainingIgnoreCase(login,password);
     }
 }
