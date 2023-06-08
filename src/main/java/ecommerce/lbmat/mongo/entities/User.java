@@ -2,9 +2,11 @@ package ecommerce.lbmat.mongo.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Document(value = "user")

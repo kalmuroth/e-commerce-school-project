@@ -1,31 +1,33 @@
 package ecommerce.lbmat.mongo.services;
 
-import ecommerce.lbmat.mongo.entities.Product;
-import ecommerce.lbmat.mongo.repositories.ProductRepository;
+import ecommerce.lbmat.mongo.entities.Caddie;
+import ecommerce.lbmat.mongo.repositories.CaddieRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 @Slf4j
 @AllArgsConstructor
-public class ProductServiceImpl implements ProductService{
-    private ProductRepository repository;
+public class CaddieServiceImpl implements CaddieService{
+    private CaddieRepository repository;
 
     @Override
-    public Product create(Product entity) {
+    public Caddie create(Caddie entity) {
         return repository.save(entity);
     }
     @Override
-    public Product read(String id) {
+    public Caddie read(String id) {
         return repository.findById(id).orElse(null);
     }
-
     @Override
-    public List<Product> readAll() {
+    public List<Caddie> readAll() {
         return repository.findAll();
+    }
+    @Override
+    public Caddie update(Caddie entity) {
+        return repository.save(entity);
     }
 }
